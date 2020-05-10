@@ -139,9 +139,19 @@ local function get_queue_id(conf)
              conf.flush_timeout)
 end
 
+local function obfuscate_headers(conf, headers)
+  for _, name in ipairs(conf.obfuscate_headers) do
+    local value = headers[name]
+    if value ~= nil then
+      headers[name] = "***"
+    end
+  end
+end
 
 function HttpLogHandler:log(conf)
-  local entry = cjson_encode(basic_serializer.serialize(ngx))
+  local serialized = basic_serializer.serialize(ngx)
+  serialized = obfuscate_headers(serialized.request.headers)
+  local entry = cjson_encode(serialized)
 
   local queue_id = get_queue_id(conf)
   local q = queues[queue_id]

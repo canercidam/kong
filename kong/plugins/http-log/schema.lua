@@ -16,6 +16,7 @@ return {
           { retry_count = { type = "integer", default = 10 }, },
           { queue_size = { type = "integer", default = 1 }, },
           { flush_timeout = { type = "number", default = 2 }, },
+          { obfuscate_headers = { type = "array", elements = typedefs.header_name, default = { "Authorization" } }, },
     }, }, },
   },
 }
