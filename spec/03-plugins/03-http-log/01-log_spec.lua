@@ -216,7 +216,8 @@ for _, strategy in helpers.each_strategy() do
         method = "GET",
         path = "/status/200",
         headers = {
-          ["Host"] = "http_logging.test"
+          ["Host"] = "http_logging.test",
+          ["Authorization"] = "some_auth_token"
         }
       }))
       assert.res_status(200, res)
@@ -236,6 +237,7 @@ for _, strategy in helpers.each_strategy() do
 
         if #body.entries == 1 then
           assert.same("127.0.0.1", body.entries[1].client_ip)
+          assert.same("***", body.entries[1].request.headers["Authorization"])
           return true
         end
       end, 10)
