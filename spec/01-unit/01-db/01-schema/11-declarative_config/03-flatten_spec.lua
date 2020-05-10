@@ -269,6 +269,7 @@ describe("declarative config: flatten", function()
                 flush_timeout = 2,
                 keepalive = 60000,
                 method = "POST",
+                obfuscate_headers = { "Authorization" },
                 queue_size = 1,
                 retry_count = 10,
                 timeout = 10000,
@@ -359,6 +360,7 @@ describe("declarative config: flatten", function()
                 http_endpoint = "https://example.com",
                 keepalive = 60000,
                 method = "POST",
+                obfuscate_headers = { "Authorization" },
                 queue_size = 1,
                 retry_count = 10,
                 timeout = 10000
@@ -530,6 +532,7 @@ describe("declarative config: flatten", function()
                   http_endpoint = "https://example.com",
                   keepalive = 60000,
                   method = "POST",
+                  obfuscate_headers = { "Authorization" },
                   queue_size = 1,
                   retry_count = 10,
                   timeout = 10000
@@ -983,6 +986,7 @@ describe("declarative config: flatten", function()
                   http_endpoint = "https://example.com",
                   keepalive = 60000,
                   method = "POST",
+                  obfuscate_headers = { "Authorization" },
                   queue_size = 1,
                   retry_count = 10,
                   timeout = 10000
